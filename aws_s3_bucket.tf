@@ -1,5 +1,7 @@
 resource "aws_s3_bucket" "mybucket" {
-  bucket =var.name   #"ed-my-bucket" - o nome do bucket fica guardado dentro da varivel
+  count = 2
+  bucket = "ed-my-bucket-${count.index}"
+  # bucket =var.name   #"ed-my-bucket" - o nome do bucket fica guardado dentro da varivel
   tags = {
     "environment" = "dev"
   }
